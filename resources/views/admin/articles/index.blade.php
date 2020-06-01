@@ -1,3 +1,7 @@
+{{-- @php
+dd($articles);
+@endphp --}}
+
 @extends('layouts.app')
 @section('content')
        <div class="container">
@@ -20,13 +24,13 @@
                                           <h2>Pages</h2>
                                    </div>
                                    <div class="offset-3 col-3">
-                                          <a href="{{route('admin.pages.create')}}">Crea una pagina</a>
+                                          <a href="{{route('admin.articles.create')}}">Crea una pagina</a>
                                    </div>
                             </div>
                             <table class="table table-dark">
                                    <thead class="thead-dark">
                                           <tr>
-                                                 <th>Id</th>
+                                                 <th>ID</th>
                                                  <th>Title</th>
                                                  <th>Categories</th>
                                                  <th>Tags</th>
@@ -35,11 +39,13 @@
                                    </thead>
                                    <tbody>
                                           <tr>
-                                                 <td></td>
-                                                 <td></td>
-                                                 <td></td>
-                                                 <td></td>
-                                                 
+                                                 <td>{{$articles->id}}</td>
+                                                 <td>{{$articles->title}}</td>
+                                                 <td>{{$articles->category->name}}</td>
+                                                 <td>@foreach ($articles->tags as $value)
+                                                        {{$value->name}}
+                                                 @endforeach</td>
+
                                                  <td><a class="btn btn-primary" href="">Visualizza</a></td>
                                                  <td><a class="btn btn-info" href="">Modifica</a></td>
                                                  <td>

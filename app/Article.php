@@ -19,7 +19,7 @@ class Article extends Model
        }
 
        public function tags(){
-       return $this->belonsToMany('App\Tag');
+       return $this->belongsToMany('App\Tag');
        }
 
        public function photos() {

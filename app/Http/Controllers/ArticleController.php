@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Tag;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -14,9 +16,14 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
-    }
+           $articles = Article::find(1); //prendo tutto
+          $tags = Tag::find(1);
+          $categories = Category::find(1);
+         
+        return view('admin.articles.index' , compact('articles') );
 
+
+}
     /**
      * Show the form for creating a new resource.
      *

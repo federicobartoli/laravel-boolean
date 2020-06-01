@@ -22,14 +22,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/pages', function () {
-    return view('admin.pages.index');
-})->name('admin.pages.index');
+Route::get('/articles', 'ArticleController@index')->name('admin.articles.index');
 
-Route::get('/pages/create', function () {
-    return view('admin.pages.create');
-})->name('admin.pages.create');
+Route::get('/articles/create', function () {
+    return view('admin.articles.create');
+})->name('admin.articles.create');
 
-Route::get('/pages/{page}/edit', function () {
-    return view('admin.pages.edit');
-})->name('admin.pages.edit');
+Route::get('/articles/{article}/edit', function () {
+    return view('admin.articles.edit');
+})->name('admin.articles.edit');
